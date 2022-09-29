@@ -15,7 +15,6 @@ public class UserDao {
     private int postalCode;
     private int phoneNumber;
     private String email;
-    private String shipmentInfo;
 
     public UserDao(Long id, String firstName, String lastName, String address, int postalCode, int phoneNumber, String email) {
         this.id = id;
