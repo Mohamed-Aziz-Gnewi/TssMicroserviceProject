@@ -13,6 +13,7 @@ import javax.persistence.*;
 public class Shipment {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String companyName;
     private String address;
