@@ -16,6 +16,7 @@ public class UserServiceImp implements UserService {
 
     public UserServiceImp(UserRepository userRepository,ShipmentRepository shipmentRepository ) {
         this.userRepository = userRepository;
+        this.shipmentRepository= shipmentRepository;
     }
 
 
@@ -75,16 +76,19 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Shipment getShipmentById(Long id) {
-        return shipmentRepository;
+        return shipmentRepository.findById(id).get();
     }
 
     @Override
     public List<Shipment> getShipments() {
-        return null;
+        return shipmentRepository.findAll();
     }
 
     @Override
     public Shipment setShipment(Shipment shipment, Long userId) {
-        return null;
+        User user = userRepository.findById(userId).get();
+        shipment.setShipmentUser(user);
+        return shipmentRepository.save(shipment);
+
     }
 }
