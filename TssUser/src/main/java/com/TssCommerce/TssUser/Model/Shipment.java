@@ -1,5 +1,6 @@
 package com.TssCommerce.TssUser.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Shipment {
     private int phoneNumber;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Shipment_User_Id",nullable= false)
+    @JsonIgnore
     private User shipmentUser;
 
     public Shipment(String companyName, String address, int postalCode, int phoneNumber) {
