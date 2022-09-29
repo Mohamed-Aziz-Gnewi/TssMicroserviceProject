@@ -21,4 +21,11 @@ public class Shipment {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Shipment_User_Id",nullable= false)
     private User shipmentUser;
+
+    public Shipment(String companyName, String address, int postalCode, int phoneNumber) {
+        this.companyName = companyName;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.phoneNumber = phoneNumber;
+    }
 }
