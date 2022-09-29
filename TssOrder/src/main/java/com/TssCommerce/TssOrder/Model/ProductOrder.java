@@ -22,7 +22,7 @@ public class ProductOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     Date dateCreated;
     Status status = Status.PENDING;
     Long userId;

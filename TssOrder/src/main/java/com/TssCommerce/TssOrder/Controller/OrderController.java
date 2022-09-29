@@ -4,21 +4,15 @@ import com.TssCommerce.TssOrder.Dao.ProductDao;
 import com.TssCommerce.TssOrder.Enum.Discount;
 import com.TssCommerce.TssOrder.Enum.Status;
 import com.TssCommerce.TssOrder.Model.ProductOrder;
-import com.TssCommerce.TssOrder.Model.ShippedInfo;
 import com.TssCommerce.TssOrder.Proxy.ProductProxy;
 import com.TssCommerce.TssOrder.Repository.OrderRepository;
 import com.TssCommerce.TssOrder.Repository.ProductDaoRepository;
 import com.TssCommerce.TssOrder.Service.OrderServiceImp;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.lang3.SerializationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.bind.DatatypeConverter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @RestController
 @RequestMapping("/tssorder")
@@ -73,21 +67,6 @@ public class OrderController {
 
 
     }
-    @GetMapping("/testString")
-    ShippedInfo testJsonToString() throws JsonProcessingException {
 
-        ShippedInfo shippedInfo = new ShippedInfo(1L,"First shipped","Company name","my addrr",1022,2399999);
-
-        //Creating the ObjectMapper object
-        ObjectMapper mapper = new ObjectMapper();
-        //Converting the Object to JSONString
-        String jsonString = mapper.writeValueAsString(shippedInfo);
-
-        ShippedInfo shippedInfo1 = mapper.readValue(jsonString,ShippedInfo.class);
-
-        return shippedInfo1;
-
-
-    }
 
 }
