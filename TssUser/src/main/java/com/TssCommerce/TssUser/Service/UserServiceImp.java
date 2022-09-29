@@ -87,8 +87,8 @@ public class UserServiceImp implements UserService {
     @Override
     public Shipment setShipment(Shipment shipment, Long userId) {
         User user = userRepository.findById(userId).get();
-        shipment.setShipmentUser(user);
-        return shipmentRepository.save(shipment);
+        Shipment newShipment = new Shipment(shipment.getCompanyName(),shipment.getAddress(),shipment.getPostalCode(),shipment.getPhoneNumber(),user);
+        return shipmentRepository.save(newShipment);
 
     }
 }

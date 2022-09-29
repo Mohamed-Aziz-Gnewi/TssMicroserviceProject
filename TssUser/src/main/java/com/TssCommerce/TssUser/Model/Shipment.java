@@ -28,4 +28,12 @@ public class Shipment {
         this.postalCode = postalCode;
         this.phoneNumber = phoneNumber;
     }
+
+    public Shipment(String companyName, String address, int postalCode, int phoneNumber, User shipmentUser) {
+        this.companyName = companyName;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.phoneNumber = phoneNumber;
+        this.shipmentUser = shipmentUser;
+    }
 }
