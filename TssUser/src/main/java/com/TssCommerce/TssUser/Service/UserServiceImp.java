@@ -1,15 +1,20 @@
 package com.TssCommerce.TssUser.Service;
 
+import com.TssCommerce.TssUser.Model.Shipment;
 import com.TssCommerce.TssUser.Model.User;
 import com.TssCommerce.TssUser.Model.UserDao;
+import com.TssCommerce.TssUser.Repository.ShipmentRepository;
 import com.TssCommerce.TssUser.Repository.UserRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServiceImp implements UserService {
     public final UserRepository userRepository;
+    public final ShipmentRepository shipmentRepository;
 
-    public UserServiceImp(UserRepository userRepository) {
+    public UserServiceImp(UserRepository userRepository,ShipmentRepository shipmentRepository ) {
         this.userRepository = userRepository;
     }
 
@@ -43,7 +48,6 @@ public class UserServiceImp implements UserService {
         existantUser.setPostalCode(user.getPostalCode());
         existantUser.setPhoneNumber(user.getPhoneNumber());
         existantUser.setEmail(user.getEmail());
-        existantUser.setShipmentInfo(user.getShipmentInfo());
         existantUser.setProfileImage(user.getProfileImage());
 
         userRepository.save(existantUser);
@@ -61,12 +65,26 @@ public class UserServiceImp implements UserService {
         existantUser.setPostalCode(user.getPostalCode());
         existantUser.setPhoneNumber(user.getPhoneNumber());
         existantUser.setEmail(user.getEmail());
-        existantUser.setShipmentInfo(user.getShipmentInfo());
         return userRepository.save(existantUser);
     }
 
     @Override
     public void deleteUser(Long id) {
 
+    }
+
+    @Override
+    public Shipment getShipmentById(Long id) {
+        return shipmentRepository;
+    }
+
+    @Override
+    public List<Shipment> getShipments() {
+        return null;
+    }
+
+    @Override
+    public Shipment setShipment(Shipment shipment, Long userId) {
+        return null;
     }
 }

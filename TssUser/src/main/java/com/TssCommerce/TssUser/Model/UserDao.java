@@ -16,13 +16,4 @@ public class UserDao {
     private int phoneNumber;
     private String email;
 
-    public UserDao(Long id, String firstName, String lastName, String address, int postalCode, int phoneNumber, String email) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.postalCode = postalCode;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-    }
 }
