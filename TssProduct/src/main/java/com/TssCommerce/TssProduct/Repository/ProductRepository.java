@@ -13,6 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(
             value = "SELECT * FROM product p WHERE p.id in ?1",
             nativeQuery = true)
-    List<Product> findSpecificProducts(Set<Long> idList);
+    List<Product> findSpecificProducts(Set<Long> productIdSet);
 
 }

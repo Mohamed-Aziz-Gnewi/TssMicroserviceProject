@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
@@ -56,9 +57,9 @@ public class ProductController {
         return productService.deleteProduct(id);
     }
 
-    @GetMapping("/test")
-    public List<Product> testing()
+    @PostMapping("/getSpecificProducts")
+    public List<Product> getSpecificProducts(@RequestBody() Set<Long> productIdSet)
     {
-        return productService.getSpecificProducts();
+        return productService.getSpecificProducts(productIdSet);
     }
 }

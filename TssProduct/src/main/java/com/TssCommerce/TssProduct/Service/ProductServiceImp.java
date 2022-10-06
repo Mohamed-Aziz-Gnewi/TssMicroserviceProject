@@ -68,10 +68,7 @@ public class ProductServiceImp implements ProductService {
         productRepository.deleteById(id);
         return product;
     }
-    public List<Product> getSpecificProducts() {
-        Set<Long> idList = new HashSet<>();
-        idList.add(1L);
-
-        return productRepository.findSpecificProducts(idList);
+    public List<Product> getSpecificProducts(Set<Long> productIdSet) {
+        return productRepository.findSpecificProducts(productIdSet);
     }
 }
