@@ -73,4 +73,9 @@ public class ProductController {
         
         return productService.getSpecificProductsDao(set);
     }
+    @PostMapping("testing")
+    public String testing()
+    {
+        return "test working";
+    }
 }

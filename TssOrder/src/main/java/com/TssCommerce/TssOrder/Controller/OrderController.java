@@ -89,5 +89,10 @@ public class OrderController {
     {
         return productProxy.getSpecificProductDao(productIdList);
     }
+    @PostMapping("/test3")
+    public String  test3 ()
+    {
+        return productProxy.testing();
+    }
 
 }
