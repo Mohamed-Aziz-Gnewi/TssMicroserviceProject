@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(name="localhost:9003/tssproduct")
+@FeignClient(name="localhost:9001/tssproduct")
 public interface ProductProxy {
 
     @GetMapping("/tssproduct/getProductDao/{id}")
