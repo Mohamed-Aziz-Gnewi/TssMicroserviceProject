@@ -31,6 +31,17 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
+    public List<ProductDao> getProductsDao(List<Long> idList) {
+        List<Product> products= productRepository.findAllById(idList);
+        for (product:products
+             ) {
+
+
+        }
+        return null;
+    }
+
+    @Override
     public Product getProduct(Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException("product not found id = " + id));

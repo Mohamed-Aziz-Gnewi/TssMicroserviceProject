@@ -29,6 +29,10 @@ public class User {
             cascade = CascadeType.ALL)
     private List<Shipment> shipmentList;
 
+    @OneToMany(mappedBy = "productUser", fetch = FetchType.LAZY,
+    cascade = CascadeType.ALL)
+    private List<Product> productList;
+
     public User(String firstName, String lastName, String password, String address, int postalCode, int phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;

@@ -8,6 +8,7 @@ import java.util.List;
 public interface ProductService {
     public List<Product> getAll();
     public ProductDao getProductDao(Long id);
+    public List<ProductDao> getProductsDao(List<Long> idList);
     public Product getProduct(Long id);
     public Product addProduct(Product product);
     public Product updateProduct(Product product);
