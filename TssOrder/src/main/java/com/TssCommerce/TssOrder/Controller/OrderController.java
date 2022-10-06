@@ -84,4 +84,10 @@ public class OrderController {
         return userProxy.getUserById(id);
     }
 
+    @PostMapping("/test2")
+    public List<ProductDao> getSpecifiedProducts(@RequestBody ProductIdList productIdList)
+    {
+        return productProxy.getSpecificProductDao(productIdList);
+    }
+
 }
