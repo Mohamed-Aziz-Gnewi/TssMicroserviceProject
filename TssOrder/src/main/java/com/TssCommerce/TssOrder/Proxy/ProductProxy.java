@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(name="tssproduct",url = "http://localhost:9001/")
+@FeignClient(name="tssproduct")
 public interface ProductProxy {
 
     @GetMapping("/tssproduct/getProductDao/{id}")
     public ProductDao getProductDao(@PathVariable("id")Long id);
     @PostMapping("/getSpecificProductDao")
     public List<ProductDao> getSpecificProductDao(@RequestBody ProductIdList productIdList);
-    @PostMapping("/testing")
+    @PostMapping("/tssproduct/testing")
     public String testing();
 }
