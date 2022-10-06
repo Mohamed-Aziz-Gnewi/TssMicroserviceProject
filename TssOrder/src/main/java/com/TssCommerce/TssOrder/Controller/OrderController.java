@@ -52,10 +52,10 @@ public class OrderController {
         return orderRepository.findById(id).get();
     }
 
-    @PostMapping("/addOrder/{userId}")
-    ProductOrder addOrder(@PathVariable("id")Long userId, @RequestBody ProductIdList productIdList)
+    @PostMapping("/addOrder")
+    ProductOrder addOrder(@RequestBody ProductIdList productIdList)
     {
-        return orderServiceImp.addOrder(userId,productIdList);
+        return orderServiceImp.addOrder(1L,productIdList);
     }
 
     @GetMapping("/test")
