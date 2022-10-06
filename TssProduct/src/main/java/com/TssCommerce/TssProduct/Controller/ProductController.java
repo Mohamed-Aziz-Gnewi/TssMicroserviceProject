@@ -66,4 +66,11 @@ public class ProductController {
 
         return productService.getSpecificProducts(set);
     }
+    @GetMapping("/getSpecificProductDao")
+
+    public List<ProductDao> getSpecificProductDao()
+    {
+
+        return productService.getSpecificProductsDao();
+    }
 }

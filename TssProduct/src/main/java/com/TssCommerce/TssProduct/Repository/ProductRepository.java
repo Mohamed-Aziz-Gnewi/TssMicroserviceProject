@@ -1,5 +1,6 @@
 package com.TssCommerce.TssProduct.Repository;
 
+import com.TssCommerce.TssProduct.Dao.ProductDao;
 import com.TssCommerce.TssProduct.Model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,5 +15,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             value = "SELECT * FROM product p WHERE p.id in ?1",
             nativeQuery = true)
     List<Product> findSpecificProducts(Set<Long> productIdSet);
+
+    @Query(
+            value = "SELECT id, product_name, quantity, unit_price FROM product",
+            nativeQuery = true)
+    List<ProductDao> findSpecificProductsDao();
 
 }

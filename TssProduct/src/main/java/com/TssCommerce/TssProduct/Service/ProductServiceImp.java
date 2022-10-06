@@ -71,4 +71,7 @@ public class ProductServiceImp implements ProductService {
     public List<Product> getSpecificProducts(Set<Long> productIdSet) {
         return productRepository.findSpecificProducts(productIdSet);
     }
+    public List<ProductDao> getSpecificProductsDao() {
+        return productRepository.findSpecificProductsDao();
+    }
 }
