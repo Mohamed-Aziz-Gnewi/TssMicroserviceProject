@@ -1,10 +1,12 @@
 package com.TssCommerce.TssOrder.Controller;
 
 import com.TssCommerce.TssOrder.Dao.ProductDao;
+import com.TssCommerce.TssOrder.Dao.ShipmentInfo;
 import com.TssCommerce.TssOrder.Enum.Discount;
 import com.TssCommerce.TssOrder.Enum.Status;
 import com.TssCommerce.TssOrder.Model.ProductOrder;
 import com.TssCommerce.TssOrder.Proxy.ProductProxy;
+import com.TssCommerce.TssOrder.Proxy.UserProxy;
 import com.TssCommerce.TssOrder.Repository.OrderRepository;
 import com.TssCommerce.TssOrder.Repository.ProductDaoRepository;
 import com.TssCommerce.TssOrder.Service.OrderServiceImp;
@@ -26,12 +28,13 @@ public class OrderController {
 
     public final OrderServiceImp orderServiceImp;
     public final ProductProxy productProxy;
+    public final UserProxy userProxy;
 
-    public OrderController(OrderServiceImp orderServiceImp, ProductProxy productProxy) {
+    public OrderController(OrderServiceImp orderServiceImp, ProductProxy productProxy, UserProxy userProxy) {
         this.orderServiceImp = orderServiceImp;
         this.productProxy = productProxy;
+        this.userProxy = userProxy;
     }
-
 
     @GetMapping("/productsProxy/{id}")
     ProductDao getProducts(@PathVariable("id") Long id)
@@ -66,6 +69,10 @@ public class OrderController {
         return productOrder;
 
 
+    }
+    @GetMapping("/getShipmet/{id}")
+    public ShipmentInfo getShipmentById(@PathVariable("id")Long id){
+        return userProxy.getShipmentById(id);
     }
 
 
