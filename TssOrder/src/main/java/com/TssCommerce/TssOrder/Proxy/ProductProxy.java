@@ -15,7 +15,7 @@ public interface ProductProxy {
 
     @GetMapping("/tssproduct/getProductDao/{id}")
     public ProductDao getProductDao(@PathVariable("id")Long id);
-    @PostMapping("/getSpecificProductDao")
+    @PostMapping("/tssproduct/getSpecificProductDao")
     public List<ProductDao> getSpecificProductDao(@RequestBody ProductIdList productIdList);
     @PostMapping("/tssproduct/testing")
     public String testing();
