@@ -16,9 +16,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             nativeQuery = true)
     List<Product> findSpecificProducts(Set<Long> productIdSet);
 
-    @Query(
-            value = "SELECT id, product_name, quantity, unit_price FROM product",
-            nativeQuery = true)
-    List<ProductDao> findSpecificProductsDao();
 
 }

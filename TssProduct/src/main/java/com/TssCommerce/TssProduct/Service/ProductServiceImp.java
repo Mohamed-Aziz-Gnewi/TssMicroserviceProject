@@ -8,6 +8,7 @@ import com.TssCommerce.TssProduct.Repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -71,7 +72,15 @@ public class ProductServiceImp implements ProductService {
     public List<Product> getSpecificProducts(Set<Long> productIdSet) {
         return productRepository.findSpecificProducts(productIdSet);
     }
-    public List<ProductDao> getSpecificProductsDao() {
-        return productRepository.findSpecificProductsDao();
+    public List<ProductDao> getSpecificProductsDao(Set<Long> productIdSet) {
+
+        List<Product> productList = productRepository.findSpecificProducts(productIdSet);
+        List<ProductDao> productDaos = new ArrayList<>();
+        for (Product product:productList
+             ) {
+            productDaos.add(new ProductDao(product.getId(), product.getProductName(), product.getQuantity(), product.getUnitPrice()));
+        }
+
+        return productDaos;
     }
 }

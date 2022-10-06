@@ -66,11 +66,11 @@ public class ProductController {
 
         return productService.getSpecificProducts(set);
     }
-    @GetMapping("/getSpecificProductDao")
-
-    public List<ProductDao> getSpecificProductDao()
+    @PostMapping("/getSpecificProductDao")
+    public List<ProductDao> getSpecificProductDao(@RequestBody IdListTemplate idListTemplate)
     {
-
-        return productService.getSpecificProductsDao();
+        Set<Long> set = idListTemplate.getIdList().stream().collect(Collectors.toSet());
+        
+        return productService.getSpecificProductsDao(set);
     }
 }
