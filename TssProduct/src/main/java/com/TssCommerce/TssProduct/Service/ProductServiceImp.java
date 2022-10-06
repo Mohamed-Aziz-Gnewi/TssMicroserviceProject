@@ -8,7 +8,9 @@ import com.TssCommerce.TssProduct.Repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -67,7 +69,9 @@ public class ProductServiceImp implements ProductService {
         return product;
     }
     public List<Product> getSpecificProducts() {
+        Set<Long> idList = new HashSet<>();
+        idList.add(1L);
 
-        return productRepository.findSpecificProducts();
+        return productRepository.findSpecificProducts(idList);
     }
 }
