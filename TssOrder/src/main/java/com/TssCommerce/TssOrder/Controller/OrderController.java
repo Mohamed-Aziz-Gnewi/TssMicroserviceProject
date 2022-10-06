@@ -12,10 +12,12 @@ import com.TssCommerce.TssOrder.Repository.OrderRepository;
 import com.TssCommerce.TssOrder.Repository.ProductDaoRepository;
 import com.TssCommerce.TssOrder.Service.OrderServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/tssorder")
@@ -75,6 +77,7 @@ public class OrderController {
     public ShipmentInfo getShipmentById(@PathVariable("id")Long id){
         return userProxy.getShipmentById(id);
     }
+
     @GetMapping("/getUser/{id}")
     public User getUsertById(@PathVariable("id")Long id){
         return userProxy.getUserById(id);

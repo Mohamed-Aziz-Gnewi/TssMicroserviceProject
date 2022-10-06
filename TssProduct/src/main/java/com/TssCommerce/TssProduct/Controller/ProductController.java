@@ -4,11 +4,13 @@ import com.TssCommerce.TssProduct.Dao.ProductDao;
 import com.TssCommerce.TssProduct.Exception.ProductNotFoundException;
 import com.TssCommerce.TssProduct.Model.Product;
 import com.TssCommerce.TssProduct.Service.ProductServiceImp;
+import com.TssCommerce.TssProduct.Templates.IdListTemplate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -58,8 +60,10 @@ public class ProductController {
     }
 
     @PostMapping("/getSpecificProducts")
-    public List<Product> getSpecificProducts(@RequestBody() Set<Long> productIdSet)
+    public List<Product> getSpecificProducts(@RequestBody IdListTemplate idListTemplate)
     {
-        return productService.getSpecificProducts(productIdSet);
+        Set<Long> set = idListTemplate.getIdList().stream().collect(Collectors.toSet());
+
+        return productService.getSpecificProducts(set);
     }
 }
