@@ -73,7 +73,7 @@ public class ProductController {
         
         return productService.getSpecificProductsDao(set);
     }
-    @GetMapping("/decreaseQuantity/{productId}/{quantity}")
+    @PutMapping("/decreaseQuantity/{productId}/{quantity}")
     public Product decreaseQuantity(@PathVariable("productId") Long productId,@PathVariable("quantity")int quantity)
     {
         return productService.decreaseQuantity(productId,quantity);
