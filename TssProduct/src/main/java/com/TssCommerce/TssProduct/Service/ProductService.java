@@ -12,5 +12,6 @@ public interface ProductService {
     public Product getProduct(Long id);
     public Product addProduct(Product product);
     public Product updateProduct(Product product);
+    public Product decreaseQuantity(Long id,int quantity);
     public Product deleteProduct(Long id);
 }

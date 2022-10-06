@@ -74,8 +74,8 @@ public class ProductController {
         return productService.getSpecificProductsDao(set);
     }
     @PostMapping("/testing")
-    public String testing()
+    public Product testing()
     {
-        return "test working";
+        return productService.decreaseQuantity(1L,2);
     }
 }
