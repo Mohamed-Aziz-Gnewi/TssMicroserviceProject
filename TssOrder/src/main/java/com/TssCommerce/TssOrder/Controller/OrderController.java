@@ -2,6 +2,7 @@ package com.TssCommerce.TssOrder.Controller;
 
 import com.TssCommerce.TssOrder.Dao.ProductDao;
 import com.TssCommerce.TssOrder.Dao.ShipmentInfo;
+import com.TssCommerce.TssOrder.Dao.User;
 import com.TssCommerce.TssOrder.Enum.Discount;
 import com.TssCommerce.TssOrder.Enum.Status;
 import com.TssCommerce.TssOrder.Model.ProductOrder;
@@ -70,10 +71,13 @@ public class OrderController {
 
 
     }
-    @GetMapping("/getShipmet/{id}")
+    @GetMapping("/getShipment/{id}")
     public ShipmentInfo getShipmentById(@PathVariable("id")Long id){
         return userProxy.getShipmentById(id);
     }
-
+    @GetMapping("/getUser/{id}")
+    public User getUsertById(@PathVariable("id")Long id){
+        return userProxy.getUserById(id);
+    }
 
 }
