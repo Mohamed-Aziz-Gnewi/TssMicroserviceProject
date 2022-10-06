@@ -73,9 +73,9 @@ public class ProductController {
         
         return productService.getSpecificProductsDao(set);
     }
-    @PostMapping("/testing")
-    public Product testing()
+    @GetMapping("/decreaseQuantity/{productId}/{quantity}")
+    public Product decreaseQuantity(@PathVariable("productId") Long productId,@PathVariable("quantity")int quantity)
     {
-        return productService.decreaseQuantity(1L,2);
+        return productService.decreaseQuantity(productId,quantity);
     }
 }
