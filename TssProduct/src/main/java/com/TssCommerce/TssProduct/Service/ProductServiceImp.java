@@ -32,12 +32,7 @@ public class ProductServiceImp implements ProductService {
 
     @Override
     public List<ProductDao> getProductsDao(List<Long> idList) {
-        List<Product> products= productRepository.findAllById(idList);
-        for (product:products
-             ) {
 
-
-        }
         return null;
     }
 
@@ -70,5 +65,9 @@ public class ProductServiceImp implements ProductService {
         Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("the product with id = "+id+" is not found"));
         productRepository.deleteById(id);
         return product;
+    }
+    public List<Product> getSpecificProducts() {
+
+        return productRepository.findSpecificProducts();
     }
 }
