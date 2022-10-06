@@ -11,6 +11,7 @@ import com.TssCommerce.TssOrder.Proxy.UserProxy;
 import com.TssCommerce.TssOrder.Repository.OrderRepository;
 import com.TssCommerce.TssOrder.Repository.ProductDaoRepository;
 import com.TssCommerce.TssOrder.Service.OrderServiceImp;
+import com.TssCommerce.TssOrder.Wrappers.ProductIdList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
@@ -51,10 +52,10 @@ public class OrderController {
         return orderRepository.findById(id).get();
     }
 
-    @PostMapping("/addOrder")
-    ProductOrder addOrder()
+    @PostMapping("/addOrder/{userId}")
+    ProductOrder addOrder(@PathVariable("id")Long userId, @RequestBody ProductIdList productIdList)
     {
-        return orderServiceImp.addOrder();
+        return orderServiceImp.addOrder(userId,productIdList);
     }
 
     @GetMapping("/test")

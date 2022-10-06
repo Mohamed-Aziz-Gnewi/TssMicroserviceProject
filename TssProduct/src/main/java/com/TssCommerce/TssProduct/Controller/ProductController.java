@@ -4,7 +4,7 @@ import com.TssCommerce.TssProduct.Dao.ProductDao;
 import com.TssCommerce.TssProduct.Exception.ProductNotFoundException;
 import com.TssCommerce.TssProduct.Model.Product;
 import com.TssCommerce.TssProduct.Service.ProductServiceImp;
-import com.TssCommerce.TssProduct.Templates.IdListTemplate;
+import com.TssCommerce.TssProduct.Wrappers.IdListTemplate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

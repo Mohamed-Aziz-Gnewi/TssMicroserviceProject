@@ -1,4 +1,4 @@
-package com.TssCommerce.TssProduct.Templates;
+package com.TssCommerce.TssProduct.Wrappers;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
