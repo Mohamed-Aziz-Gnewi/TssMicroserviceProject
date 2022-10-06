@@ -57,8 +57,8 @@ public class ProductController {
     }
 
     @GetMapping("/test")
-    public String testing()
+    public List<Product> testing()
     {
-        return "test succ";
+        return productService.getSpecificProducts();
     }
 }
