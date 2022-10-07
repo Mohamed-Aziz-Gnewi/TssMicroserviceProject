@@ -60,21 +60,15 @@ public class ProductController {
     }
 
     @PostMapping("/getSpecificProducts")
-    public List<Product> getSpecificProducts(@RequestBody IdListTemplate idListTemplate)
+    public List<Product> getSpecificProducts(@RequestParam List<Long> idList)
     {
-        Set<Long> set = idListTemplate.getIdList().stream().collect(Collectors.toSet());
+        Set<Long> set = idList.stream().collect(Collectors.toSet());
 
         return productService.getSpecificProducts(set);
     }
+
     @PostMapping("/getSpecificProductDao")
-    public List<ProductDao> getSpecificProductDao(@RequestBody IdListTemplate idListTemplate)
-    {
-        Set<Long> set = idListTemplate.getIdList().stream().collect(Collectors.toSet());
-        
-        return productService.getSpecificProductsDao(set);
-    }
-    @PostMapping("/getSpecificProductDao")
-    public List<ProductDao> getSpecificProductDao2(@RequestParam List<Long> idList)
+    public List<ProductDao> getSpecificProductDao(@RequestParam List<Long> idList)
     {
         Set<Long> set = idList.stream().collect(Collectors.toSet());
 

@@ -3,10 +3,7 @@ package com.TssCommerce.TssOrder.Proxy;
 import com.TssCommerce.TssOrder.Dao.ProductDao;
 import com.TssCommerce.TssOrder.Wrappers.ProductIdList;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +13,7 @@ public interface ProductProxy {
     @GetMapping("/tssproduct/getProductDao/{id}")
     public ProductDao getProductDao(@PathVariable("id")Long id);
     @PostMapping("/tssproduct/getSpecificProductDao")
-    public List<ProductDao> getSpecificProductDao(@RequestBody ProductIdList productIdList);
+    public List<ProductDao> getSpecificProductDao(@RequestParam List<Long> idList);
     @PostMapping("/tssproduct/testing")
     public String testing();
 }

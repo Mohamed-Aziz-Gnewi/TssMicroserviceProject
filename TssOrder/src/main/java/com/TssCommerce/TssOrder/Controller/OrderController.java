@@ -85,9 +85,9 @@ public class OrderController {
     }
 
     @PostMapping("/test2")
-    public List<ProductDao> getSpecifiedProducts(@RequestBody ProductIdList productIdList)
+    public List<ProductDao> getSpecifiedProducts(@RequestParam List<Long> idList)
     {
-        return productProxy.getSpecificProductDao(productIdList);
+        return productProxy.getSpecificProductDao(idList);
     }
     @PostMapping("/test3")
     public String  test3 ()
