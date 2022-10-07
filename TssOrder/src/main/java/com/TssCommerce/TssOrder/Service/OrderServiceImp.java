@@ -40,6 +40,7 @@ public class OrderServiceImp implements OrderService{
 
     @Override
     public ProductOrder addOrder(Long userId, ProductIdList productIdList) {
+        /*
         Double totalPrice;
         Status status;
         Discount discount;
@@ -59,6 +60,9 @@ public class OrderServiceImp implements OrderService{
 
 
         return productOrder;
+
+         */
+        return null;
     }
 
     @Override
