@@ -64,12 +64,12 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public Product decreaseQuantity(Long id, int quantity) {
+    public int decreaseQuantity(Long id, int quantity) {
 
         Product product = productRepository.findById(id).orElseThrow(()-> new ProductNotFoundException("product with id : "+id+" not found"));
         product.setQuantity(product.getQuantity()-quantity);
         productRepository.save(product);
-        return product;
+        return product.getQuantity();
     }
 
     @Override
