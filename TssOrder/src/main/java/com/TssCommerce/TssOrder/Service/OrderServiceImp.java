@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -39,8 +40,9 @@ public class OrderServiceImp implements OrderService{
     }
 
     @Override
-    public ProductOrder addOrder(Long userId, ProductIdList productIdList) {
-        /*
+    public ProductOrder addOrder(Long userId, HashMap<Long,Double> productIdUnitPriceList) {
+
+        ProductIdList productIdList = new ProductIdList(new ArrayList<>(productIdUnitPriceList.keySet()));
         Double totalPrice;
         Status status;
         Discount discount;
@@ -61,8 +63,7 @@ public class OrderServiceImp implements OrderService{
 
         return productOrder;
 
-         */
-        return null;
+
     }
 
     @Override
