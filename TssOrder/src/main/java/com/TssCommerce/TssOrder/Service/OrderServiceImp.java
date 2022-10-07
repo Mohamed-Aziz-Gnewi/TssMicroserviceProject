@@ -56,7 +56,7 @@ public class OrderServiceImp implements OrderService{
 
         for (ProductDao productdao:productDaoList
              ) {
-            productDaoRepository.save(new ProductDao(productdao.getProductName(),productdao.getQuantity(),productdao.getUnitPrice(),productOrder));
+            productDaoRepository.save(new ProductDao(productdao.getProductId(),productdao.getProductName(),productdao.getQuantity(),productdao.getUnitPrice(),productOrder));
         }
 
 
