@@ -73,6 +73,13 @@ public class ProductController {
         
         return productService.getSpecificProductsDao(set);
     }
+    @PostMapping("/getSpecificProductDao")
+    public List<ProductDao> getSpecificProductDao2(@RequestParam List<Long> idList)
+    {
+        Set<Long> set = idList.stream().collect(Collectors.toSet());
+
+        return productService.getSpecificProductsDao(set);
+    }
     @PutMapping("/decreaseQuantity/{productId}/{quantity}")
     public Product decreaseQuantity(@PathVariable("productId") Long productId,@PathVariable("quantity")int quantity)
     {
