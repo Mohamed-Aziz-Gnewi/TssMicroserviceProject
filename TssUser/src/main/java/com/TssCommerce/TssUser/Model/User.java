@@ -26,11 +26,11 @@ public class User {
     private String email;
     private String profileImage;
     @OneToMany(mappedBy = "shipmentUser", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.REMOVE)
     private List<Shipment> shipmentList;
 
     @OneToMany(mappedBy = "productUser", fetch = FetchType.LAZY,
-    cascade = CascadeType.ALL)
+    cascade = CascadeType.REMOVE)
     private List<Product> productList;
 
     public User(String firstName, String lastName, String password, String address, int postalCode, int phoneNumber, String email) {
