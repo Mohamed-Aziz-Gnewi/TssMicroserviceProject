@@ -54,7 +54,7 @@ public class OrderController {
     }
 
     @PostMapping("/addOrder/{id}")
-    ProductOrder addOrder(@PathVariable("id") Long id,@RequestBody HashMap<Long,Double> productIdUnitPriceList)
+    ProductOrder addOrder(@PathVariable("id") Long id,@RequestBody HashMap<Long,Integer> productIdUnitPriceList)
     {
         return orderServiceImp.addOrder(id,productIdUnitPriceList);
     }
