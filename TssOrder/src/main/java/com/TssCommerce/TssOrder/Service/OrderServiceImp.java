@@ -40,7 +40,7 @@ public class OrderServiceImp implements OrderService{
     }
 
     @Override
-    public ProductOrder addOrder(Long userId, HashMap<Long,Double> productIdUnitPriceList) {
+    public ProductOrder addOrder(Long userId, HashMap<Long,Integer> productIdUnitPriceList) {
 
         ProductIdList productIdList = new ProductIdList(new ArrayList<>(productIdUnitPriceList.keySet()));
         Double totalPrice;
@@ -56,7 +56,9 @@ public class OrderServiceImp implements OrderService{
 
         for (ProductDao productdao:productDaoList
              ) {
-            productDaoRepository.save(new ProductDao(productdao.getId(),productdao.getProductName(),productdao.getQuantity(),productdao.getUnitPrice(),productOrder));
+            Integer newQuantity = productIdUnitPriceList.get(productdao.getId());
+            productDaoRepository.save(new ProductDao(productdao.getId(),productdao.getProductName(),newQuantity,productdao.getUnitPrice(),productOrder));
+            productProxy.decreaseQuantity(productdao.getId(),newQuantity);
         }
 
 
