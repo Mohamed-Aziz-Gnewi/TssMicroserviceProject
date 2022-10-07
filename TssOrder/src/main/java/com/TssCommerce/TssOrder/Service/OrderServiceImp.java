@@ -48,7 +48,6 @@ public class OrderServiceImp implements OrderService{
         Discount discount;
         status = Status.PENDING;
         Date date = new Date(System.currentTimeMillis());
-
         List<ProductDao> productDaoList = productProxy.getSpecificProductDao(productIdList);
         totalPrice = setTotalPrice(productDaoList);
         discount = setDiscount(totalPrice);

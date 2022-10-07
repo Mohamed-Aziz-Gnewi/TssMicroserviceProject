@@ -15,6 +15,8 @@ import javax.persistence.*;
 public class ProductDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long productId;
+
     Long id;
     String productName;
     int quantity;
@@ -26,6 +28,14 @@ public class ProductDao {
     ProductOrder productOrder;
 
     public ProductDao(String productName, int quantity, Double unitPrice, ProductOrder productOrder) {
+        this.productName = productName;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.productOrder = productOrder;
+    }
+
+    public ProductDao(Long id, String productName, int quantity, Double unitPrice, ProductOrder productOrder) {
+        this.id = id;
         this.productName = productName;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
