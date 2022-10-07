@@ -29,7 +29,7 @@ public class ProductOrder {
     Long userId;
 
     @OneToMany(mappedBy = "productOrder", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.REMOVE)
     List<ProductDao> productDaoList;
 
 
