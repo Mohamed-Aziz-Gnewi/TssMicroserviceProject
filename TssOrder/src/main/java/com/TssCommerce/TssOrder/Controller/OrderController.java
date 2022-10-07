@@ -96,4 +96,10 @@ public class OrderController {
         return productProxy.testing();
     }
 
+    @DeleteMapping("/deleteOrder/{id}")
+    public void deleteOrderById(@PathVariable("id") Long id)
+    {
+        orderServiceImp.deleteOrder(id);
+    }
+
 }

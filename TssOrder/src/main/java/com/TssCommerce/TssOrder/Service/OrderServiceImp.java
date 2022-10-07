@@ -95,4 +95,9 @@ public class OrderServiceImp implements OrderService{
         }
         return Discount.SPECIAL_DISCOUNT;
     }
+
+    @Override
+    public void deleteOrder(Long orderId) {
+        orderRepository.deleteById(orderId);
+    }
 }

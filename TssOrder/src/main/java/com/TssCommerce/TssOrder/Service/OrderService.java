@@ -14,5 +14,6 @@ public interface OrderService {
     public ProductOrder getOrderById(Long id);
     public Double setTotalPrice(List<ProductDao> productDaoList);
     public Discount setDiscount(Double totalPrice);
+    public void deleteOrder(Long orderId);
 
 }
