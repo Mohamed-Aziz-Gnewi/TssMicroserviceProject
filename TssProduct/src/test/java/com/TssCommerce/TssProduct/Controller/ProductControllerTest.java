@@ -131,7 +131,7 @@ class ProductControllerTest {
 
         mockMvc.perform(get("/tssproduct/getProductDao/1"))
                 .andExpect(jsonPath("$.productName",is(productDao.getProductName())))
-                .andExpect(status().isOk());
+                .andExpect(status().isBadRequest());
     }
     @Disabled
     @Test
