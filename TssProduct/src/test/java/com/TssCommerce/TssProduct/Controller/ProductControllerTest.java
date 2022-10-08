@@ -19,10 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -147,7 +144,8 @@ class ProductControllerTest {
         IdListTemplate idListTemplate = new IdListTemplate(list);
         List<Product> productList = new ArrayList<>();
         productList.add(product);
-        Set<Long> idSet = idListTemplate.getIdList().stream().collect(Collectors.toSet());
+        Set<Long> idSet = new HashSet<>();
+        idSet.add(1L);
         given(productServiceImp.getSpecificProducts(idSet)).willReturn(productList);
 
         ObjectWriter ow = new ObjectMapper().writer();
