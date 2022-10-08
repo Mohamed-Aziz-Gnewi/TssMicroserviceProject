@@ -131,6 +131,11 @@ class ProductServiceImpTest {
     @Disabled
     @Test
     void decreaseQuantity() {
+        Product product = new Product(1L,"testproduct","",1.4,10);
+        productRepository.save(product);
+        assertThat(productServiceImp.decreaseQuantity(1L,1)).isEqualTo(9);
+
+
     }
     @Disabled
     @Test
