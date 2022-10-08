@@ -150,7 +150,8 @@ class ProductControllerTest {
         Set<Long> idSet = new HashSet<>();
         idSet.add(1L);
         ///
-        given(productServiceImp.getSpecificProducts(idSet)).willReturn(productList);
+       // given(productServiceImp.getSpecificProducts(idSet)).willReturn(productList);
+        when(productServiceImp.getSpecificProducts(idSet)).thenReturn(productList);
         ObjectWriter ow = new ObjectMapper().writer();
         String content = ow.writeValueAsString(idListTemplate);
 
