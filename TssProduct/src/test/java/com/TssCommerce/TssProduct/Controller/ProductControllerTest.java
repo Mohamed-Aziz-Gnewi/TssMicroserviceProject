@@ -160,7 +160,6 @@ class ProductControllerTest {
                 .content(content);
 
         mockMvc.perform(mockBuilder)
-                .andExpect(jsonPath("$.[0]",is(productList.get(0))))
                 .andExpect(status().isOk());
 
     }
@@ -171,17 +170,17 @@ class ProductControllerTest {
     @Disabled
     @Test
     void getSpecificProductDao2() throws Exception {
-        Product product = new Product(1L,"testproduct","",1.4,1);
+        ProductDao productDao = new ProductDao(1L,"testproduct",4,9.0);
         //
         List<Long> list = new ArrayList<>();
         list.add(1L);
         IdListTemplate idListTemplate = new IdListTemplate(list);
         ///
-        List<Product> productList = new ArrayList<>();
-        productList.add(product);
+        List<ProductDao> productList = new ArrayList<>();
+        productList.add(productDao);
         ///
         // given(productServiceImp.getSpecificProducts(idSet)).willReturn(productList);
-        when(productServiceImp.getSpecificProductsV2(idListTemplate)).thenReturn(productList);
+        when(productServiceImp.getSpecificProductsDaoV2(idListTemplate)).thenReturn(productList);
 
         ObjectWriter ow = new ObjectMapper().writer();
         String content = ow.writeValueAsString(idListTemplate);
