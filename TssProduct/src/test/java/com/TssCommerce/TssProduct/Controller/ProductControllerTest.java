@@ -45,12 +45,7 @@ class ProductControllerTest {
     private ProductController productController;
 
 
-
-    @Test
-    void testing() throws Exception {
-        mockMvc.perform(get("/tssproduct/test"))
-                .andExpect(status().isOk());
-    }
+    
 
 
     @Test
@@ -98,7 +93,6 @@ class ProductControllerTest {
     }
 
     @Test
-
     void updateProduct() throws Exception {
         Product product = new Product(1L,"testproduct","",1.4,1);
         given(productServiceImp.updateProduct(product)).willReturn(product);
