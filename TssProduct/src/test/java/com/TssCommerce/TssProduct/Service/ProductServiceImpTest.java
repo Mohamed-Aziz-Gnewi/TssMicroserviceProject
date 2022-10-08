@@ -13,7 +13,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Optional;
+import java.util.*;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
@@ -140,6 +140,17 @@ class ProductServiceImpTest {
     @Disabled
     @Test
     void getSpecificProducts() {
+        Product product = new Product(1L,"testproduct","",1.4,1);
+        ProductDao productDao = new ProductDao(1L,"testproduct",1,1.4);
+        Set<Long> idSet = new HashSet<>();
+        idSet.add(1L);
+        List<Product> productList = new ArrayList<>();
+        List<ProductDao> productDaoList = new ArrayList<>();
+        productList.add(product);
+        productDaoList.add(productDao);
+        given(productRepository.findSpecificProducts(idSet)).willReturn(productList);
+        assertThat(productServiceImp.getSpecificProductsDao(idSet)).isEqualTo(productDaoList);
+
     }
     @Disabled
     @Test
