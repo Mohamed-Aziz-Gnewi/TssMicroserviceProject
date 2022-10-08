@@ -128,7 +128,6 @@ class ProductServiceImpTest {
     @Test
     void getProductsDao() {
     }
-    @Disabled
     @Test
     void decreaseQuantity() {
         Product product = new Product(1L,"testproduct","",1.4,10);
@@ -140,6 +139,9 @@ class ProductServiceImpTest {
     @Disabled
     @Test
     void getSpecificProducts() {
+    }
+    @Test
+    void getSpecificProductsDao() {
         Product product = new Product(1L,"testproduct","",1.4,1);
         ProductDao productDao = new ProductDao(1L,"testproduct",1,1.4);
         Set<Long> idSet = new HashSet<>();
@@ -150,10 +152,5 @@ class ProductServiceImpTest {
         productDaoList.add(productDao);
         given(productRepository.findSpecificProducts(idSet)).willReturn(productList);
         assertThat(productServiceImp.getSpecificProductsDao(idSet)).isEqualTo(productDaoList);
-
-    }
-    @Disabled
-    @Test
-    void getSpecificProductsDao() {
     }
 }

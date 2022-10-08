@@ -122,4 +122,23 @@ class ProductControllerTest {
     }
 
 
+    @Test
+    void getProductDao() {
+    }
+
+    @Test
+    void getSpecificProducts() {
+    }
+
+    @Test
+    void getSpecificProductDao() {
+    }
+
+    @Test
+    void getSpecificProductDao2() {
+    }
+
+    @Test
+    void decreaseQuantity() {
+    }
 }
