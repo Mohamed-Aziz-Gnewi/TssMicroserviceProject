@@ -98,4 +98,17 @@ public class ProductServiceImp implements ProductService {
 
         return productDaos;
     }
+    public List<ProductDao> getSpecificProductsDaoV2(IdListTemplate idListTemplate) {
+
+        Set<Long> productIdSet = idListTemplate.getIdList().stream().collect(Collectors.toSet());
+        List<Product> productList = productRepository.findSpecificProducts(productIdSet);
+
+        List<ProductDao> productDaos = new ArrayList<>();
+        for (Product product:productList
+        ) {
+            productDaos.add(new ProductDao(product.getId(), product.getProductName(), product.getQuantity(), product.getUnitPrice()));
+        }
+
+        return productDaos;
+    }
 }
