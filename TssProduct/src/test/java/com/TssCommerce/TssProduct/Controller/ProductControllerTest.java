@@ -3,6 +3,8 @@ package com.TssCommerce.TssProduct.Controller;
 import com.TssCommerce.TssProduct.Dao.ProductDao;
 import com.TssCommerce.TssProduct.Model.Product;
 import com.TssCommerce.TssProduct.Service.ProductServiceImp;
+import com.TssCommerce.TssProduct.Wrappers.IdListTemplate;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import org.junit.jupiter.api.Disabled;
@@ -17,8 +19,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -87,7 +92,7 @@ class ProductControllerTest {
         MockHttpServletRequestBuilder mockBuilder = MockMvcRequestBuilders.post("/tssproduct/addProduct")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .accept(MediaType.APPLICATION_JSON)
-                                        .content(content);
+                                .content(content);
 
         mockMvc.perform(mockBuilder)
                 .andExpect(jsonPath("$.productName",is(product.getProductName())))
@@ -135,7 +140,27 @@ class ProductControllerTest {
     }
     @Disabled
     @Test
-    void getSpecificProducts() {
+    void getSpecificProducts() throws Exception {
+        Product product = new Product(1L,"testproduct","",1.4,1);
+        List<Long> list = new ArrayList<>();
+        list.add(1L);
+        IdListTemplate idListTemplate = new IdListTemplate(list);
+        List<Product> productList = new ArrayList<>();
+        productList.add(product);
+        Set<Long> idSet = idListTemplate.getIdList().stream().collect(Collectors.toSet());
+        given(productServiceImp.getSpecificProducts(idSet)).willReturn(productList);
+
+        ObjectWriter ow = new ObjectMapper().writer();
+        String content = ow.writeValueAsString(idListTemplate);
+
+        MockHttpServletRequestBuilder mockBuilder = MockMvcRequestBuilders.post("/getSpecificProductDao")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(content);
+
+        mockMvc.perform(mockBuilder)
+                .andExpect(status().isOk());
+
     }
     @Disabled
     @Test
