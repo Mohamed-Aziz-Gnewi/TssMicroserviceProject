@@ -43,7 +43,7 @@ public class GeneratedPdf2 {
         float thirdPage = 190f;
         float fullPage = 570f;
         Paragraph lineJump = new Paragraph("\n");
-        String imageFile = "C:/Users/GHOST/Desktop/TSS-Commerce/TssInvoice/src/main/resources/static/tssLogo.jpg";
+        String imageFile = "src/main/resources/static/tssLogo.jpg";
         Border grayBorderThick = new SolidBorder(GRAY,2f);
         Border grayBorderSlim = new SolidBorder(GRAY,1f);
         Color tssLogo = new DeviceRgb(9,63,110);;
