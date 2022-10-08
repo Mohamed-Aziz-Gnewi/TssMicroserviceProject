@@ -126,7 +126,6 @@ class ProductControllerTest {
 
     }
 
-    @Disabled
     @Test
     void getProductDao() throws Exception {
         ProductDao productDao = new ProductDao(1L,"testproduct",1,1.5);
@@ -136,7 +135,6 @@ class ProductControllerTest {
                 .andExpect(jsonPath("$.productName",is(productDao.getProductName())))
                 .andExpect(status().isOk());
     }
-    @Disabled
     @Test
     void getSpecificProductsV2() throws Exception {
         Product product = new Product(1L,"testproduct","",1.4,1);
@@ -167,7 +165,6 @@ class ProductControllerTest {
     @Test
     void getSpecificProductDao() {
     }
-    @Disabled
     @Test
     void getSpecificProductDao2() throws Exception {
         ProductDao productDao = new ProductDao(1L,"testproduct",4,9.0);
