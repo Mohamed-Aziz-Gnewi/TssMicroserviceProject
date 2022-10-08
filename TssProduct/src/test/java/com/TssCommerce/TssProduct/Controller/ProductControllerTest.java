@@ -185,7 +185,7 @@ class ProductControllerTest {
         ObjectWriter ow = new ObjectMapper().writer();
         String content = ow.writeValueAsString(idListTemplate);
 
-        MockHttpServletRequestBuilder mockBuilder = MockMvcRequestBuilders.post("/tssproduct/getSpecificProductDaoV2")
+        MockHttpServletRequestBuilder mockBuilder = MockMvcRequestBuilders.post("/tssproduct/getSpecificProductDao2")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(content);
