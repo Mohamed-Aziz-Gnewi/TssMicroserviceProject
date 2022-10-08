@@ -1,9 +1,11 @@
 package com.TssCommerce.TssProduct.Controller;
 
+import com.TssCommerce.TssProduct.Dao.ProductDao;
 import com.TssCommerce.TssProduct.Model.Product;
 import com.TssCommerce.TssProduct.Service.ProductServiceImp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -121,23 +123,29 @@ class ProductControllerTest {
 
     }
 
-
+    @Disabled
     @Test
-    void getProductDao() {
-    }
+    void getProductDao() throws Exception {
+        ProductDao productDao = new ProductDao(1L,"testproduct",1,1.5);
+        given(productServiceImp.getProductDao(1L)).willReturn(productDao);
 
+        mockMvc.perform(get("/tssproduct/getProductDao/1"))
+                .andExpect(jsonPath("$.productName",is(productDao.getProductName())))
+                .andExpect(status().isOk());
+    }
+    @Disabled
     @Test
     void getSpecificProducts() {
     }
-
+    @Disabled
     @Test
     void getSpecificProductDao() {
     }
-
+    @Disabled
     @Test
     void getSpecificProductDao2() {
     }
-
+    @Disabled
     @Test
     void decreaseQuantity() {
     }
