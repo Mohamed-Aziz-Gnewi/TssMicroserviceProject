@@ -66,6 +66,11 @@ public class ProductController {
 
         return productService.getSpecificProducts(set);
     }
+    @PostMapping("/getSpecificProductsV2")
+    public List<Product> getSpecificProductsV2(@RequestBody IdListTemplate idListTemplate)
+    {
+        return productService.getSpecificProductsV2(idListTemplate);
+    }
     @PostMapping("/getSpecificProductDao")
     public List<ProductDao> getSpecificProductDao(@RequestBody IdListTemplate idListTemplate)
     {

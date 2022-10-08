@@ -5,6 +5,7 @@ import com.TssCommerce.TssProduct.Exception.ProductExistantException;
 import com.TssCommerce.TssProduct.Exception.ProductNotFoundException;
 import com.TssCommerce.TssProduct.Model.Product;
 import com.TssCommerce.TssProduct.Repository.ProductRepository;
+import com.TssCommerce.TssProduct.Wrappers.IdListTemplate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -79,6 +81,10 @@ public class ProductServiceImp implements ProductService {
         return product;
     }
     public List<Product> getSpecificProducts(Set<Long> productIdSet) {
+        return productRepository.findSpecificProducts(productIdSet);
+    }
+    public List<Product> getSpecificProductsV2(IdListTemplate idListTemplate) {
+        Set<Long> productIdSet = idListTemplate.getIdList().stream().collect(Collectors.toSet());
         return productRepository.findSpecificProducts(productIdSet);
     }
     public List<ProductDao> getSpecificProductsDao(Set<Long> productIdSet) {
