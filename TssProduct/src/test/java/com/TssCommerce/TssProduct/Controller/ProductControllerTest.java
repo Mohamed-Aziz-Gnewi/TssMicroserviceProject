@@ -138,7 +138,7 @@ class ProductControllerTest {
     }
     @Disabled
     @Test
-    void getSpecificProducts() throws Exception {
+    void getSpecificProductsV2() throws Exception {
         Product product = new Product(1L,"testproduct","",1.4,1);
         //
         List<Long> list = new ArrayList<>();
@@ -148,16 +148,13 @@ class ProductControllerTest {
         List<Product> productList = new ArrayList<>();
         productList.add(product);
         ///
-        Set<Long> idSet = new HashSet<>();
-        idSet.add(1L);
-        ///
        // given(productServiceImp.getSpecificProducts(idSet)).willReturn(productList);
-        when(productServiceImp.getSpecificProducts(idSet)).thenReturn(productList);
+        when(productServiceImp.getSpecificProductsV2(idListTemplate)).thenReturn(productList);
 
         ObjectWriter ow = new ObjectMapper().writer();
         String content = ow.writeValueAsString(idListTemplate);
 
-        MockHttpServletRequestBuilder mockBuilder = MockMvcRequestBuilders.post("/getSpecificProductDao")
+        MockHttpServletRequestBuilder mockBuilder = MockMvcRequestBuilders.post("/getSpecificProductDaoV2")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(content);
