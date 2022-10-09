@@ -37,7 +37,7 @@ class UserServiceImpTest {
     void getUserById() {
         User user = new User(1L,"aziz","gnewi","aziz123","Bardo",2000, 26990423,"aziz@gmail.com");
         given(userRepository.findById(1L)).willReturn(Optional.of(user));
-        userServiceImp.getUserById(1L);
+        //userServiceImp.getUserById(1L);
         verify(userRepository).findById(1L);
     }
 
