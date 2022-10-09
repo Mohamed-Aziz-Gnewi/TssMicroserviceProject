@@ -1,0 +1,11 @@
+package com.TssCommerce.TssUser.Controller.Exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.BAD_REQUEST)
+public class UserAlreadyExistantException extends RuntimeException {
+    public UserAlreadyExistantException(String message) {
+        super(message);
+    }
+}
