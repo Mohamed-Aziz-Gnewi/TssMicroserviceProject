@@ -47,7 +47,7 @@ class UserServiceImpTest {
     @Test
     void getUserDaoById() {
         User user = new User(1L,"aziz","gnewi","aziz123","Bardo",2000, 26990423,"aziz@gmail.com");
-        UserDao userDao = new UserDao(1L,"aziz","gnewi","aziz123",2000,26990423,"aziz@gmail.com");
+        UserDao userDao = new UserDao(1L,"aziz","gnewi","Bardo",2000,26990423,"aziz@gmail.com");
         given(userRepository.findById(1L)).willReturn(Optional.of(user));
         assertThat(userServiceImp.getUserDaoById(1L)).isEqualTo(userDao);
 
