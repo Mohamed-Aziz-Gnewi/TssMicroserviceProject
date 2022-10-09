@@ -1,4 +1,4 @@
-package com.TssCommerce.TssUser.Controller.Exception;
+package com.TssCommerce.TssUser.Exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

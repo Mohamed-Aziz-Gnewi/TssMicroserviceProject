@@ -1,6 +1,6 @@
 package com.TssCommerce.TssUser.Service;
 
-import com.TssCommerce.TssUser.Controller.Exception.ElementNotFoundException;
+import com.TssCommerce.TssUser.Exception.ElementNotFoundException;
 import com.TssCommerce.TssUser.Model.Shipment;
 import com.TssCommerce.TssUser.Model.User;
 import com.TssCommerce.TssUser.Model.UserDao;

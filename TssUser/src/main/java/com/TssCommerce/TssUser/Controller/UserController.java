@@ -47,4 +47,16 @@ public class UserController {
         return userServiceImp.setShipment(shipment,userId);
 
     }
+    @PostMapping("/addUser")
+    public User createUser(@RequestBody User user){
+        return userServiceImp.addUser(user);
+    }
+    @PutMapping("/updateUser/{id}")
+    public User updateUser(@PathVariable("id") Long id,@RequestBody User user){
+        return userServiceImp.updateUser(id,user);
+    }
+    @DeleteMapping("/deleteUser/{id}")
+    public void deleteUser(@PathVariable("id")Long id){
+        userServiceImp.deleteUser(id);
+    }
 }
