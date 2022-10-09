@@ -42,4 +42,15 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
+
+    public User(Long id, String firstName, String lastName, String password, String address, int postalCode, int phoneNumber, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
 }
