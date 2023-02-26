@@ -93,9 +93,9 @@ public class ProductController {
     }
     @PostMapping("/image")
     public MultipartFile uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
-        byte [] byteArr=file.getBytes();
-        String encodedString = Base64.getEncoder().encodeToString(byteArr);
-        byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
+        //byte [] byteArr=file.getBytes();
+        //String encodedString = Base64.getEncoder().encodeToString(byteArr);
+        //byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
         return file;
 
     }
