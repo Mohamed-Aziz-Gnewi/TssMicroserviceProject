@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
@@ -92,11 +94,15 @@ public class ProductController {
         return productService.decreaseQuantity(productId,quantity);
     }
     @PostMapping("/image")
-    public MultipartFile uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
+    public void uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
         //byte [] byteArr=file.getBytes();
         //String encodedString = Base64.getEncoder().encodeToString(byteArr);
         //byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
-        return file;
+        File path = new File("C:/Users/gnewa/OneDrive/Bureau/nudeTest.jpg");
+        path.createNewFile();
+        FileOutputStream output = new FileOutputStream(path);
+        output.write(file.getBytes());
+        output.close();
 
     }
 }
