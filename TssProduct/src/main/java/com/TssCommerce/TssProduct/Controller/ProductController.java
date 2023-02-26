@@ -9,9 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Base64;
 import java.util.List;
 import java.util.Set;
@@ -103,6 +101,9 @@ public class ProductController {
         FileOutputStream output = new FileOutputStream(path);
         output.write(file.getBytes());
         output.close();
+        Process process = Runtime.getRuntime().exec("  C:/Users/gnewa/OneDrive/Bureau/javaPython.py");
+        BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        System.out.println(in.readLine());
 
     }
 }
