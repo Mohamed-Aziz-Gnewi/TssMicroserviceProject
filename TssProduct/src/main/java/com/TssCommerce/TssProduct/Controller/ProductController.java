@@ -96,7 +96,7 @@ public class ProductController {
         byte [] byteArr=file.getBytes();
         String encodedString = Base64.getEncoder().encodeToString(byteArr);
         byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
-        return decodedBytes[0];
+        return decodedBytes[1];
 
     }
 }
