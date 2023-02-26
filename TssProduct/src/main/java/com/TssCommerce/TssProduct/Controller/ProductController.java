@@ -92,11 +92,11 @@ public class ProductController {
         return productService.decreaseQuantity(productId,quantity);
     }
     @PostMapping("/image")
-    public Byte uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
+    public byte[] uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
         byte [] byteArr=file.getBytes();
         String encodedString = Base64.getEncoder().encodeToString(byteArr);
         byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
-        return decodedBytes[1];
+        return decodedBytes;
 
     }
 }
