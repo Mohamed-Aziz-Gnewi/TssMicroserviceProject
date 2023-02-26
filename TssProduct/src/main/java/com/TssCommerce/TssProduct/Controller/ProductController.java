@@ -101,7 +101,7 @@ public class ProductController {
         FileOutputStream output = new FileOutputStream(path);
         output.write(file.getBytes());
         output.close();
-        Process process = Runtime.getRuntime().exec("  C:/Users/gnewa/OneDrive/Bureau/javaPython.py");
+        Process process = Runtime.getRuntime().exec("python C:/Users/gnewa/OneDrive/Bureau/javaPython.py");
         BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
         System.out.println(in.readLine());
 
