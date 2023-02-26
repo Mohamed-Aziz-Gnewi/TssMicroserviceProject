@@ -7,7 +7,10 @@ import com.TssCommerce.TssProduct.Service.ProductServiceImp;
 import com.TssCommerce.TssProduct.Wrappers.IdListTemplate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.*;
@@ -87,5 +90,12 @@ public class ProductController {
     public int decreaseQuantity(@PathVariable("productId") Long productId,@PathVariable("quantity")int quantity)
     {
         return productService.decreaseQuantity(productId,quantity);
+    }
+    @PostMapping("/image")
+    public String uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
+        byte [] byteArr=file.getBytes();
+        String encodedString = Base64.getEncoder().encodeToString(byteArr);
+        return encodedString;
+
     }
 }
