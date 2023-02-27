@@ -3,6 +3,7 @@ package com.TssCommerce.TssProduct.Controller;
 import com.TssCommerce.TssProduct.Dao.ProductDao;
 import com.TssCommerce.TssProduct.Exception.ProductNotFoundException;
 import com.TssCommerce.TssProduct.Model.Product;
+import com.TssCommerce.TssProduct.Service.EmailSenderService;
 import com.TssCommerce.TssProduct.Service.ProductServiceImp;
 import com.TssCommerce.TssProduct.Wrappers.IdListTemplate;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.stream.*;
 @RequestMapping("/tssproduct")
 public class ProductController {
     private final ProductServiceImp productService;
+    private final EmailSenderService emailSenderService;
 
     @GetMapping ("/getAll")
     public List<Product> getProducts() {
@@ -111,6 +113,13 @@ public class ProductController {
             //postRepo.save(encodedString)
 
         }
+
+    }
+
+    @PostMapping("/email")
+    public void SendEmail()
+    {
+        emailSenderService.SendEmail("gnewamedaziz99@gmail.com","SpringEmail","Hello I am here !!");
 
     }
 }
