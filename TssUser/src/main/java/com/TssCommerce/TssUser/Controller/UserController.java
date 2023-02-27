@@ -3,7 +3,9 @@ package com.TssCommerce.TssUser.Controller;
 import com.TssCommerce.TssUser.Model.Shipment;
 import com.TssCommerce.TssUser.Model.User;
 import com.TssCommerce.TssUser.Model.UserDao;
+import com.TssCommerce.TssUser.Service.EmailSenderService;
 import com.TssCommerce.TssUser.Service.UserServiceImp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +15,9 @@ import java.util.List;
 public class UserController {
 
     public final UserServiceImp userServiceImp;
+
+    @Autowired
+    public  EmailSenderService senderService;
 
     public UserController(UserServiceImp userServiceImp) {
         this.userServiceImp = userServiceImp;
@@ -58,5 +63,11 @@ public class UserController {
     @DeleteMapping("/deleteUser/{id}")
     public void deleteUser(@PathVariable("id")Long id){
         userServiceImp.deleteUser(id);
+    }
+
+    @PostMapping("/mail")
+    public void sendMail()
+    {
+        senderService.SendEmail("gnewamedaziz99@gmail.com","SpringEmail","Hello I am here !!");
     }
 }
