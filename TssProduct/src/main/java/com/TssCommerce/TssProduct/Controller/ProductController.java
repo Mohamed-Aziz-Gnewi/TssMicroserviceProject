@@ -106,13 +106,7 @@ public class ProductController {
         Process process = Runtime.getRuntime().exec("python C:/Users/gnewa/OneDrive/Bureau/javaPython.py");
         BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String safe= in.readLine();
-        if(Integer.parseInt(safe)>0.70 )
-        {
-            //byte [] byteArr=file.getBytes();
-            //String encodedString = Base64.getEncoder().encodeToString(byteArr);
-            //postRepo.save(encodedString)
-
-        }
+        System.out.println(safe);
 
     }
 
